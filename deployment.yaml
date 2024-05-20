@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: flask-web-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: flask-web-app
+  template:
+    metadata:
+      labels:
+        app: flask-web-app
+    spec:
+      containers:
+      - name: flask-web-app
+        image: 767397729319.dkr.ecr.ap-south-1.amazonaws.com/flask-web-app:latest
+        ports:
+        - containerPort: 5000
+
